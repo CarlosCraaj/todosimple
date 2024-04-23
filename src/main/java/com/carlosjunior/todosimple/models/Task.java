@@ -50,11 +50,11 @@ public class Task {
         this.id = id;
     }
 
-    public User getUse() {
+    public User getUser() {
         return this.user;
     }
 
-    public void setUse(User user) {
+    public void setUser(User user) {
         this.user = user;
     }
 
