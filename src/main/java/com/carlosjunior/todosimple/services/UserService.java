@@ -34,10 +34,19 @@ public class UserService {
         return obj;
     }
 
+    @Transactional
     public User update(User obj) {
         User newObj = findById(obj.getId());
         newObj.setPassword(obj.getPassword());
         return this.userRepository.save(newObj);
     }
 
+    public void delete(Long id) {
+        findById(id);
+        try {
+            this.userRepository.deleteById(id);
+        } catch (Exception e) {
+            throw new RuntimeException("Não é possível excluir, pois há entidades relacionadas.");
+        }
+    }
 }
